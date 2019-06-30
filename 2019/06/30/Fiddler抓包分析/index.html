@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Fiddler是什么Fiddler是一个抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。也可以用来检测网络安全。  Fiddler抓包原理Fiddler是通过改写HTTP代理，让数据从它那通过,来监控并且截取到数据。在打开它Fiddler那一瞬间，它就已经设置好了浏览器的代理了。当你关闭的时候，它又帮你把代理还原了。 基本设置 接收数据设置  Fiddler想要抓到数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fiddler做抓包分析">
+<meta property="og:url" content="http://yoursite.com/2019/06/30/Fiddler抓包分析/index.html">
+<meta property="og:site_name" content="su_blogs">
+<meta property="og:description" content="Fiddler是什么Fiddler是一个抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。也可以用来检测网络安全。  Fiddler抓包原理Fiddler是通过改写HTTP代理，让数据从它那通过,来监控并且截取到数据。在打开它Fiddler那一瞬间，它就已经设置好了浏览器的代理了。当你关闭的时候，它又帮你把代理还原了。 基本设置 接收数据设置  Fiddler想要抓到数据">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/d3a616e608d24e-963x771.jpg">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/a8011b17baa8d4-679x461.jpg">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/2f37b5e0fa6dcd-684x464.jpg">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/866f00cb38dbfd-938x858.jpg">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/5d4377ce004587-1021x886.jpg">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/863ee62208b2c3-647x194.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/17eddcec59bde0-1028x904.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/d413a364dc1795-617x222.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/8dbcf757edeb54-1013x917.jpg">
+<meta property="og:updated_time" content="2018-10-15T01:04:16.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fiddler做抓包分析">
+<meta name="twitter:description" content="Fiddler是什么Fiddler是一个抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。也可以用来检测网络安全。  Fiddler抓包原理Fiddler是通过改写HTTP代理，让数据从它那通过,来监控并且截取到数据。在打开它Fiddler那一瞬间，它就已经设置好了浏览器的代理了。当你关闭的时候，它又帮你把代理还原了。 基本设置 接收数据设置  Fiddler想要抓到数据">
+<meta name="twitter:image" content="https://img-fe.ggwan.com/images/d3a616e608d24e-963x771.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/30/Fiddler抓包分析/">
+
+
+
+
+
+  <title>Fiddler做抓包分析 | su_blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">su_blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/30/Fiddler抓包分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="su_blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Fiddler做抓包分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-30T12:53:26+08:00">
+                2019-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Fiddler是什么"><a href="#Fiddler是什么" class="headerlink" title="Fiddler是什么"></a>Fiddler是什么</h3><p>Fiddler是一个抓包工具，可以将网络传输发送与接受的数据包进行截获、重发、编辑、转存等操作。也可以用来检测网络安全。 </p>
+<h3 id="Fiddler抓包原理"><a href="#Fiddler抓包原理" class="headerlink" title="Fiddler抓包原理"></a>Fiddler抓包原理</h3><p>Fiddler是通过改写HTTP代理，让数据从它那通过,来监控并且截取到数据。在打开它Fiddler那一瞬间，它就已经设置好了浏览器的代理了。当你关闭的时候，它又帮你把代理还原了。</p>
+<h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ul>
+<li>接收数据设置</li>
+</ul>
+<p>Fiddler想要抓到数据包，要确保Capture Traffic是开启的状态，在File这一栏选择Capture Traffic。开启后在左下角会有图标显示。 </p>
+<p><img src="https://img-fe.ggwan.com/images/d3a616e608d24e-963x771.jpg" alt="avatar"></p>
+<ul>
+<li>HTTPS设置(根据需要)</li>
+</ul>
+<p>默认是没开启https支持的，当项目中的接口使用的是https协议时，需要打开该功能。</p>
+<p>Tools -&gt; Options</p>
+<p><img src="https://img-fe.ggwan.com/images/a8011b17baa8d4-679x461.jpg" alt="avatar"></p>
+<ul>
+<li>手机端(客户端)设置-需要手机抓包分析时</li>
+</ul>
+<p>Tools -&gt; Options -&gt; Connections -&gt; Allow remote computers to connect</p>
+<p><img src="https://img-fe.ggwan.com/images/2f37b5e0fa6dcd-684x464.jpg" alt="avatar"></p>
+<p>保证电脑和手机在同一局域网下，设置手机代理服务器地址为电脑ip和端口号8888（默认）。</p>
+<p>用手机浏览器打开http://电脑ip.:8888，下载证书—安装证书</p>
+<h3 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h3><h4 id="1-Statistics-请求的性能数据分析"><a href="#1-Statistics-请求的性能数据分析" class="headerlink" title="1. Statistics 请求的性能数据分析"></a>1. Statistics 请求的性能数据分析</h4><p><img src="https://img-fe.ggwan.com/images/866f00cb38dbfd-938x858.jpg" alt="avatar"></p>
+<p>如上图，我们能够看到一些基本性能数据：如DNS解析的时间消耗是8ms，建立TCP/IP连接的时间消耗是73ms，Https握手的时间是76ms等信息。</p>
+<h4 id="2-Inspectors-查看数据内容"><a href="#2-Inspectors-查看数据内容" class="headerlink" title="2. Inspectors 查看数据内容"></a>2. Inspectors 查看数据内容</h4><p><img src="https://img-fe.ggwan.com/images/5d4377ce004587-1021x886.jpg" alt="avatar"></p>
+<p>Inspectors分为上下两个部分，上半部分是请求头部分，下半部分是响应头部分。对于每一部分，提供了多种不同格式查看每个请求和响应的内容。图片格式使用 ImageView 就可以看到图片，HTML/JS/CSS 使用 TextView 可以看到响应的内容。Raw标签可以查看原始的符合HTTP标准的请求和响应头… </p>
+<h4 id="3-AutoResponder-允许拦截指定规则的请求"><a href="#3-AutoResponder-允许拦截指定规则的请求" class="headerlink" title="3. AutoResponder 允许拦截指定规则的请求"></a>3. AutoResponder 允许拦截指定规则的请求</h4><p>AutoResponder允许你拦截指定规则的求情，并返回本地资源或Fiddler资源，从而代替服务器响应。本地替代线上调试代码会比较有用。</p>
+<p>做个示例，在浏览器访问一张图片如下:</p>
+<p><img src="https://img-fe.ggwan.com/images/863ee62208b2c3-647x194.png" alt="avatar"></p>
+<p>现在要做的是，让该地址指向本地资源<br>在fiddler里选中该资源，勾选Enable rules，点击Add Rule，选中新生成的rule，在底部选择一张保存在本地的图片，然后点击save。</p>
+<p><img src="https://img-fe.ggwan.com/images/17eddcec59bde0-1028x904.png" alt="avatar"></p>
+<p>重新打开浏览器，输入原先的地址，可以看到图片更换为本地的图片了。</p>
+<p><img src="https://img-fe.ggwan.com/images/d413a364dc1795-617x222.png" alt="avatar"></p>
+<h4 id="4-Composer-构建请求"><a href="#4-Composer-构建请求" class="headerlink" title="4. Composer 构建请求"></a>4. Composer 构建请求</h4><p>Composer允许自定义请求发送到服务器，可以手动创建一个新的请求,也可以拖拽一个现有的请求到该窗口，不做演示。</p>
+<h4 id="5-Filters-请求过滤规则"><a href="#5-Filters-请求过滤规则" class="headerlink" title="5. Filters 请求过滤规则"></a>5. Filters 请求过滤规则</h4><p>Fiters 是过滤请求用的，左边的窗口如果有一大片请求，不容易看。这个时候可以通过过滤规则来过滤掉那些不想看到的请求。 </p>
+<p>比如只显示某个域名的请求：</p>
+<p><img src="https://img-fe.ggwan.com/images/8dbcf757edeb54-1013x917.jpg" alt="avatar"></p>
+<p>end!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/30/linux命令学习笔记（上）/" rel="prev" title="MongoDB学习笔记（下）">
+                MongoDB学习笔记（下） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fiddler是什么"><span class="nav-number">1.</span> <span class="nav-text">Fiddler是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fiddler抓包原理"><span class="nav-number">2.</span> <span class="nav-text">Fiddler抓包原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置"><span class="nav-number">3.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能介绍"><span class="nav-number">4.</span> <span class="nav-text">功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Statistics-请求的性能数据分析"><span class="nav-number">4.1.</span> <span class="nav-text">1. Statistics 请求的性能数据分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Inspectors-查看数据内容"><span class="nav-number">4.2.</span> <span class="nav-text">2. Inspectors 查看数据内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-AutoResponder-允许拦截指定规则的请求"><span class="nav-number">4.3.</span> <span class="nav-text">3. AutoResponder 允许拦截指定规则的请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Composer-构建请求"><span class="nav-number">4.4.</span> <span class="nav-text">4. Composer 构建请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Filters-请求过滤规则"><span class="nav-number">4.5.</span> <span class="nav-text">5. Filters 请求过滤规则</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
