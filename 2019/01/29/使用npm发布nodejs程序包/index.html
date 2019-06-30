@@ -79,22 +79,25 @@
 
 
 
-<meta name="description" content="MongoDB的概念就不作陈述了，直接进入主题 一. 安装MongoDB安装地址： https://www.mongodb.com/download-center#community 二. 启动MongoDB服务坑点：启动服务前，要先来到MongoDB安装目录，在该目录下创建data/db文件夹，否则将启动失败  启动服务: 运行bin目录下的mongod.exe即可（mongodb默认连接端口2">
+<meta name="description" content="npmnpm 是 Node.js 官方提供的包管理工具，他已经成了 Node.js 包的标准发布平台，用于 Node.js 包的发布、传播、依赖控制。npm 提供了命令行工具，使你可以方便地下载、安装、升级、删除包，也可以让你作为开发者发布并维护包。 发布一个最简单的nodejs包 准备好要发布的包。   在文件夹下使用npm init生成package.json文件 12345678910111">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MongoDB学习笔记（上）">
-<meta property="og:url" content="http://yoursite.com/2018/07/17/MongoDB学习笔记（上）/index.html">
+<meta property="og:title" content="使用npm发布nodejs程序包">
+<meta property="og:url" content="http://yoursite.com/2019/01/29/使用npm发布nodejs程序包/index.html">
 <meta property="og:site_name" content="su_blogs">
-<meta property="og:description" content="MongoDB的概念就不作陈述了，直接进入主题 一. 安装MongoDB安装地址： https://www.mongodb.com/download-center#community 二. 启动MongoDB服务坑点：启动服务前，要先来到MongoDB安装目录，在该目录下创建data/db文件夹，否则将启动失败  启动服务: 运行bin目录下的mongod.exe即可（mongodb默认连接端口2">
+<meta property="og:description" content="npmnpm 是 Node.js 官方提供的包管理工具，他已经成了 Node.js 包的标准发布平台，用于 Node.js 包的发布、传播、依赖控制。npm 提供了命令行工具，使你可以方便地下载、安装、升级、删除包，也可以让你作为开发者发布并维护包。 发布一个最简单的nodejs包 准备好要发布的包。   在文件夹下使用npm init生成package.json文件 12345678910111">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/8e4f4530668b62-863x297.png">
-<meta property="og:image" content="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/d4686de45d7f56-1219x634.png">
-<meta property="og:image" content="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/dcc4bfb10d8174-1423x739.jpg">
-<meta property="og:image" content="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/c8f0ee74e93121-1428x743.jpg">
-<meta property="og:updated_time" content="2019-02-18T16:51:39.664Z">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/a875166d10c435-480x197.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/b6ae5e76d58b30-540x119.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/3f4e3b33f6fae9-361x57.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/90cbedde862645-418x61.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/3c2234bdc21422-997x186.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/f6af7eec49bf10-375x185.png">
+<meta property="og:image" content="https://img-fe.ggwan.com/images/18734837bd4562-584x62.png">
+<meta property="og:updated_time" content="2019-01-29T16:57:54.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MongoDB学习笔记（上）">
-<meta name="twitter:description" content="MongoDB的概念就不作陈述了，直接进入主题 一. 安装MongoDB安装地址： https://www.mongodb.com/download-center#community 二. 启动MongoDB服务坑点：启动服务前，要先来到MongoDB安装目录，在该目录下创建data/db文件夹，否则将启动失败  启动服务: 运行bin目录下的mongod.exe即可（mongodb默认连接端口2">
-<meta name="twitter:image" content="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/8e4f4530668b62-863x297.png">
+<meta name="twitter:title" content="使用npm发布nodejs程序包">
+<meta name="twitter:description" content="npmnpm 是 Node.js 官方提供的包管理工具，他已经成了 Node.js 包的标准发布平台，用于 Node.js 包的发布、传播、依赖控制。npm 提供了命令行工具，使你可以方便地下载、安装、升级、删除包，也可以让你作为开发者发布并维护包。 发布一个最简单的nodejs包 准备好要发布的包。   在文件夹下使用npm init生成package.json文件 12345678910111">
+<meta name="twitter:image" content="https://img-fe.ggwan.com/images/a875166d10c435-480x197.png">
 
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/17/MongoDB学习笔记（上）/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/29/使用npm发布nodejs程序包/">
 
 
 
 
 
-  <title>MongoDB学习笔记（上） | su_blogs</title>
+  <title>使用npm发布nodejs程序包 | su_blogs</title>
   
 
 
@@ -237,7 +240,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/MongoDB学习笔记（上）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/使用npm发布nodejs程序包/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -254,7 +257,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MongoDB学习笔记（上）</h1>
+          <h1 class="post-title" itemprop="name headline">使用npm发布nodejs程序包</h1>
         
 
         <div class="post-meta">
@@ -266,8 +269,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T12:00:00+08:00">
-                2018-07-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-29T20:38:15+08:00">
+                2019-01-29
               </time>
             
 
@@ -304,34 +307,53 @@
       
 
       
-        <p>MongoDB的概念就不作陈述了，直接进入主题</p>
-<h3 id="一-安装MongoDB"><a href="#一-安装MongoDB" class="headerlink" title="一. 安装MongoDB"></a>一. 安装MongoDB</h3><p>安装地址： <a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">https://www.mongodb.com/download-center#community</a></p>
-<h3 id="二-启动MongoDB服务"><a href="#二-启动MongoDB服务" class="headerlink" title="二. 启动MongoDB服务"></a>二. 启动MongoDB服务</h3><p>坑点：启动服务前，要先来到MongoDB安装目录，在该目录下创建data/db文件夹，否则将启动失败</p>
-<p><img src="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/8e4f4530668b62-863x297.png" alt="avatar"></p>
-<p>启动服务: 运行bin目录下的mongod.exe即可（mongodb默认连接端口27017）</p>
-<p><img src="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/d4686de45d7f56-1219x634.png" alt="avatar"></p>
-<p>如果需要每次开机都自动开启MongoDB服务，可以自行设置</p>
+        <h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>npm 是 Node.js 官方提供的包管理工具，他已经成了 Node.js 包的标准发布平台，用于 Node.js 包的发布、传播、依赖控制。npm 提供了命令行工具，使你可以方便地下载、安装、升级、删除包，也可以让你作为开发者发布并维护包。</p>
+<h3 id="发布一个最简单的nodejs包"><a href="#发布一个最简单的nodejs包" class="headerlink" title="发布一个最简单的nodejs包"></a>发布一个最简单的nodejs包</h3><blockquote>
+<p>准备好要发布的包。</p>
+</blockquote>
 <ul>
-<li><p>mongodb服务启动以后，下边就可以管理数据库了</p>
+<li><p>在文件夹下使用npm init生成package.json文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hm_su_package&quot;,  // 包名称，最好先确认名称是否已存在（去npm官网搜索），因为包名不能重复</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,  // 项目默认版本号，可改，如果项目后期更新再发布，则需要修改版本号</span><br><span class="line">  &quot;description&quot;: &quot;for testing&quot;,   // 项目描述，选填，可利于SEO </span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,  // 你的包的主要入口路径，就是别人安装了你的包后系统会去这个路径找你的代码</span><br><span class="line">  &quot;scripts&quot;: &#123;         // 脚本命令，后面会讲到，现在使用默认的就行</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;su&quot;,        // 作者，选填</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;     // 许可证，默认即可</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>比如：在bin目录下新打开一个cmd命令行窗口，然后输入mongo就可以了。</p>
-</li>
-<li><p>但是，本人觉得使用以上来操作会繁琐一些，所以推荐使用图形化工具来操作数据库</p>
+<li><p>初始化的时候写了入口路径是index.js，需要在同目录下创建文件，然后写上一些代码</p>
 </li>
 </ul>
-<h3 id="三-使用图形化工具操作MongoDB（Studio-3T）"><a href="#三-使用图形化工具操作MongoDB（Studio-3T）" class="headerlink" title="三.使用图形化工具操作MongoDB（Studio 3T）"></a>三.使用图形化工具操作MongoDB（Studio 3T）</h3><p>下载地址：<a href="https://studio3t.com/download" target="_blank" rel="noopener">https://studio3t.com/download</a></p>
-<p>下载完成后，打开，点击左上角connect连接数据库</p>
-<p><img src="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/dcc4bfb10d8174-1423x739.jpg" alt="avatar"></p>
-<p><img src="https://mmc-forecast.oss-cn-shanghai.aliyuncs.com/images/c8f0ee74e93121-1428x743.jpg" alt="avatar"></p>
-<ul>
-<li><p>连接成功后，可以看到该连接下有4个数据库，其中admin、config、local是本身就存在的</p>
-</li>
-<li><p>MongoDB副本集默认会创建local、admin数据库，local数据库主要存储副本集的元数据，admin数据库则主要存储MongoDB的用户、角色等信息 </p>
-</li>
-<li><p>my-project是我事先创建好的数据库</p>
-</li>
-</ul>
-<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2>
+<blockquote>
+<p>注册npm账号</p>
+</blockquote>
+<p>官网：<a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a><br>注册后会收到邮件，收到邮件后要进行验证才能发布包</p>
+<blockquote>
+<p>源切换</p>
+</blockquote>
+<p>切换回npm源</p>
+<p><img src="https://img-fe.ggwan.com/images/a875166d10c435-480x197.png" alt="avatar"></p>
+<blockquote>
+<p>登录</p>
+</blockquote>
+<p><img src="https://img-fe.ggwan.com/images/b6ae5e76d58b30-540x119.png" alt="avatar"></p>
+<blockquote>
+<p>发布</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-fe.ggwan.com/images/3f4e3b33f6fae9-361x57.png" alt="avatar"></p>
+<blockquote>
+<p>包的升级</p>
+</blockquote>
+<p>修改package.json的version，升级一个版本，然后再跑npm publish</p>
+<p><img src="https://img-fe.ggwan.com/images/90cbedde862645-418x61.png" alt="avatar"></p>
+<blockquote>
+<p>使用包</p>
+</blockquote>
+<p><img src="https://img-fe.ggwan.com/images/3c2234bdc21422-997x186.png" alt="avatar"></p>
+<p>打开目录，可以看到</p>
+<p><img src="https://img-fe.ggwan.com/images/f6af7eec49bf10-375x185.png" alt="avatar"></p>
+<blockquote>
+<p>删除包（这里删除另一个包）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish 包名@版本</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-fe.ggwan.com/images/18734837bd4562-584x62.png" alt="avatar"></p>
+<p>end!</p>
+
       
     </div>
     
@@ -355,14 +377,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/29/xss攻击防注入/" rel="next" title="XSS攻击与防范">
+                <i class="fa fa-chevron-left"></i> XSS攻击与防范
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/14/MongoDB学习笔记（下）/" rel="prev" title="MongoDB学习笔记（下）">
-                MongoDB学习笔记（下） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/29/前端性能优化--避免回流和重绘/" rel="prev" title="前端性能优化--避免回流和重绘">
+                前端性能优化--避免回流和重绘 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -477,7 +503,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装MongoDB"><span class="nav-number">1.</span> <span class="nav-text">一. 安装MongoDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-启动MongoDB服务"><span class="nav-number">2.</span> <span class="nav-text">二. 启动MongoDB服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-使用图形化工具操作MongoDB（Studio-3T）"><span class="nav-number">3.</span> <span class="nav-text">三.使用图形化工具操作MongoDB（Studio 3T）</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number"></span> <span class="nav-text">未完待续</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#npm"><span class="nav-number">1.</span> <span class="nav-text">npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布一个最简单的nodejs包"><span class="nav-number">2.</span> <span class="nav-text">发布一个最简单的nodejs包</span></a></li></ol></div>
             
 
           </div>

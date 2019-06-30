@@ -82,7 +82,7 @@
 <meta name="description" content="一. NginxNginx 是一个高性能的 Web 和反向代理服务器 nginx优点： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接  内存消耗少  安装非常的简单，配置文件 非常简洁   二. Nginx的安装linux系统版本 CentOS 7.3  什么是Yum Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx学习笔记（上）">
-<meta property="og:url" content="http://yoursite.com/2019/01/29/nginx学习笔记（上）/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/29/nginx学习笔记（上）/index.html">
 <meta property="og:site_name" content="su_blogs">
 <meta property="og:description" content="一. NginxNginx 是一个高性能的 Web 和反向代理服务器 nginx优点： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接  内存消耗少  安装非常的简单，配置文件 非常简洁   二. Nginx的安装linux系统版本 CentOS 7.3  什么是Yum Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat">
 <meta property="og:locale" content="default">
@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://img-fe.ggwan.com/images/7ca792af7153e9-549x52.png">
 <meta property="og:image" content="https://img-fe.ggwan.com/images/6b7687fc6cefc9-874x164.png">
 <meta property="og:image" content="https://img-fe.ggwan.com/images/aef576fdefe8da-771x310.png">
-<meta property="og:updated_time" content="2019-02-19T15:02:06.846Z">
+<meta property="og:updated_time" content="2019-02-19T14:47:18.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx学习笔记（上）">
 <meta name="twitter:description" content="一. NginxNginx 是一个高性能的 Web 和反向代理服务器 nginx优点： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接  内存消耗少  安装非常的简单，配置文件 非常简洁   二. Nginx的安装linux系统版本 CentOS 7.3  什么是Yum Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat">
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/29/nginx学习笔记（上）/">
+  <link rel="canonical" href="http://yoursite.com/2018/01/29/nginx学习笔记（上）/">
 
 
 
@@ -240,7 +240,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/nginx学习笔记（上）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/nginx学习笔记（上）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -269,8 +269,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-29T12:00:00+08:00">
-                2019-01-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T12:00:00+08:00">
+                2018-01-29
               </time>
             
 
@@ -326,7 +326,7 @@
 <p>CentOS里使用Yum作为软件包管理工具，yum是linux环境安装软件包的一种方式。</p>
 </blockquote>
 <h4 id="查看是否存在yum"><a href="#查看是否存在yum" class="headerlink" title="查看是否存在yum"></a>查看是否存在yum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm –qa | grep yum</span><br></pre></td></tr></table></figure>
-<h4 id="安装yum有一篇博客写得比较详细"><a href="#安装yum有一篇博客写得比较详细" class="headerlink" title="安装yum有一篇博客写得比较详细"></a>安装yum有一篇博客写得比较详细</h4><p><a href="https://blog.csdn.net/zhuchunyan_aijia/article/details/79149128" target="_blank" rel="noopener">https://blog.csdn.net/zhuchunyan_aijia/article/details/79149128</a></p>
+<h4 id="安装yum有一篇博客写得比较详细"><a href="#安装yum有一篇博客写得比较详细" class="headerlink" title="安装yum有一篇博客写得比较详细"></a>安装yum有一篇博客写得比较详细</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/zhuchunyan_aijia/article/details/79149128</span><br></pre></td></tr></table></figure>
 <h4 id="查看yum源的nginx版本"><a href="#查看yum源的nginx版本" class="headerlink" title="查看yum源的nginx版本"></a>查看yum源的nginx版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list | grep nginx</span><br></pre></td></tr></table></figure>
 <p><img src="https://img-fe.ggwan.com/images/58aa97c702816f-868x485.png" alt="avatar"></p>
 <blockquote>
@@ -409,17 +409,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/17/前端性能优化--避免回流和重绘/" rel="next" title="前端性能优化--避免回流和重绘">
-                <i class="fa fa-chevron-left"></i> 前端性能优化--避免回流和重绘
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/19/linux命令学习笔记/" rel="prev" title="linux命令学习笔记">
+              <a href="/2018/02/19/linux命令学习笔记/" rel="prev" title="linux命令学习笔记">
                 linux命令学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
